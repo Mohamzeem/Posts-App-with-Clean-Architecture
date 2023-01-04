@@ -3,14 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:posts/core/consts/app_colors.dart';
 
 ThemeData appTheme() => ThemeData(
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.kPrimary,
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.kBackGround,
       centerTitle: true,
+      elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: AppColors.kWhite,
-          statusBarBrightness: Brightness.light,
+          statusBarColor: AppColors.kBackGround,
+          statusBarBrightness: Brightness.dark,
           statusBarIconBrightness: Brightness.dark),
     ),
+    scaffoldBackgroundColor: AppColors.kBackGround,
     brightness: Brightness.light,
     primaryColor: AppColors.kPrimary,
     colorScheme: const ColorScheme.light(
