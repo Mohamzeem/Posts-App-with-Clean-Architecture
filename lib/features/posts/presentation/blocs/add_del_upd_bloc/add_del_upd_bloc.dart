@@ -18,7 +18,9 @@ class AddDelUpdBloc extends Bloc<AddDelUpdEvent, AddDelUpdState> {
   final UpdatePostUseCase updatePostUseCase;
   final DeletePostUseCase deletePostUseCase;
   AddDelUpdBloc(
-      this.addPostUseCase, this.updatePostUseCase, this.deletePostUseCase)
+      {required this.addPostUseCase,
+      required this.updatePostUseCase,
+      required this.deletePostUseCase})
       : super(AddDelUpdInitialState()) {
     on<AddDelUpdEvent>((event, emit) async {
       if (event is AddPostEvent) {
