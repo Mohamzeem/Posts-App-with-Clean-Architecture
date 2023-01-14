@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:posts/core/consts/app_strings.dart';
 import 'package:posts/features/posts/domain/entities/post.dart';
 import 'package:posts/features/posts/domain/usecases/get_all_posts.dart';
+import '../../../../../core/strings/app_failures.dart';
 import '../../../../../core/errors/failure.dart';
 
 part 'posts_event.dart';
@@ -32,13 +32,13 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   String _failureMessage(Failure failure) {
     switch (failure.runtimeType) {
       case ServerFailure:
-        return AppStrings.serverFailureMessage;
+        return AppFailures.SERVER_FAILURE_MESSAGE;
       case EmptyCacheFailure:
-        return AppStrings.emptyCacheFailureMessage;
+        return AppFailures.EMPTY_CACHE_FAILURE_MESSAGE;
       case OfflineFailure:
-        return AppStrings.offlineFailureMessage;
+        return AppFailures.OFFLINE_FAILURE_MESSAGE;
       default:
-        return AppStrings.unexpectedMessage;
+        return AppFailures.UNEXCEPECTED_MESSAGE;
     }
   }
 }

@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-import 'package:posts/core/consts/app_strings.dart';
 import 'package:posts/core/errors/exceptions.dart';
 import 'package:posts/features/posts/data/models/post_model.dart';
+
+import '../../../../core/strings/app_strings.dart';
 
 abstract class RemoteDataSource {
   Future<List<PostModel>> getAllPosts();
