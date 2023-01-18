@@ -10,7 +10,7 @@ abstract class RemoteDataSource {
   Future<List<PostModel>> getAllPosts();
   Future<Unit> addPost(PostModel post);
   Future<Unit> updatePost(PostModel post);
-  Future<Unit> deletePost(int id);
+  Future<Unit> deletePost(int postId);
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {

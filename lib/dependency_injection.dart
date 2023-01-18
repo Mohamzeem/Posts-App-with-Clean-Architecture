@@ -17,7 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  //Blocs
+//Blocs
   sl.registerFactory(() => PostsBloc(getAllPostsUseCase: sl()));
   sl.registerFactory(() => AddDelUpdBloc(
       addPostUseCase: sl(), updatePostUseCase: sl(), deletePostUseCase: sl()));
@@ -38,11 +38,11 @@ Future<void> init() async {
   sl.registerLazySingleton<LocalDataSource>(
       () => LocalDataSourceImpl(sharedPreferences: sl()));
 
-  //Core
+//Core
   sl.registerLazySingleton<NetworkInfo>(
       () => NetWorkInfoImpl(internetConnectionChecker: sl()));
 
-  //Externals
+//Externals
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => http.Client());

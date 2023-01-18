@@ -16,14 +16,15 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
       if (event is GetAllPostsEvent) {
         emit(PostsLoadingState());
         final failuresOrPosts = await getAllPostsUseCase();
-        emit(_faliureOrPostsStates(failuresOrPosts));
+        emit(_failureOrPostsStates(failuresOrPosts));
       } else if (event is RefreshPostsEvent) {
+        emit(PostsLoadingState());
         final failuresOrPosts = await getAllPostsUseCase();
-        emit(_faliureOrPostsStates(failuresOrPosts));
+        emit(_failureOrPostsStates(failuresOrPosts));
       }
     });
   }
-  PostsState _faliureOrPostsStates(Either<Failure, List<Post>> either) {
+  PostsState _failureOrPostsStates(Either<Failure, List<Post>> either) {
     return either.fold(
         (failure) => PostsFailureState(message: _failureMessage(failure)),
         (posts) => PostsSuccessState(post: posts));
