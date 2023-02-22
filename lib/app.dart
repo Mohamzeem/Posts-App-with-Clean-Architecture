@@ -27,6 +27,7 @@ class PostsApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: ((context, child) => MaterialApp(
+              title: 'Posts App',
               debugShowCheckedModeBanner: true,
               theme: appTheme(),
               home: const PostsPage(),
