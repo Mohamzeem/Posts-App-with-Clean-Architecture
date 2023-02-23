@@ -36,7 +36,7 @@ class PostRepositoryImpl implements PostsRepository {
         final localPosts = await localDataSource.getCachedPosts();
         return right(localPosts);
       } on EmptyCacheException {
-        return left(EmptyCacheFailure());
+        return left(CacheFailure());
       }
     }
   }

@@ -31,7 +31,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
           decodedJson.map<PostModel>((e) => PostModel.fromJson(e)).toList();
       return postModels;
     } else {
-      throw ServerException();
+      throw const ServerException();
     }
   }
 

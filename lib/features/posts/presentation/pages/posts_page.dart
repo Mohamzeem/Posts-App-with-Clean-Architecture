@@ -19,8 +19,9 @@ class PostsPage extends StatelessWidget {
       appBar: _appBar(),
       floatingActionButton: _floatingActionButton(context),
       body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 5.w),
-          child: BlocBuilder<PostsBloc, PostsState>(builder: ((context, state) {
+        padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 5.w),
+        child: BlocBuilder<PostsBloc, PostsState>(
+          builder: ((context, state) {
             if (state is PostsSuccessState) {
               return RefreshIndicator(
                   onRefresh: () => _refreshMethod(context),
@@ -33,7 +34,9 @@ class PostsPage extends StatelessWidget {
               );
             }
             return const LoadingWidget();
-          }))),
+          }),
+        ),
+      ),
     );
   }
 
